@@ -11,16 +11,14 @@
 $(function() {
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
+    * feeds definitions, the allFeeds variable in our application. */
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
          * the rest of this project. What happens when you change
          * allFeeds in app.js to be an empty array and refresh the
-         * page?
-         */
+         * page? */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
@@ -29,8 +27,7 @@ $(function() {
 
         /* Test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
+         * and that the URL is not empty. */
          it('have URLs defined and no URL is empty', function() {
            for (var feed of allFeeds) {
              expect(feed.url).toBeDefined();
@@ -41,8 +38,7 @@ $(function() {
 
         /* Test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
+         * and that the name is not empty. */
          it('have names defined and no name is empty', function() {
            for (var feed of allFeeds) {
              expect(feed.name).toBeDefined();
@@ -71,13 +67,13 @@ $(function() {
 
     /* Test suite about initial entries to the feed. */
     describe('Initial Entries', function() {
+      /* Load initial feed before running any tests. */
       beforeEach(function(done) {
         loadFeed(0, done);
       });
       /* Test that ensures when the loadFeed
        * function is called and completes its work, there is at least
-       * a single .entry element within the .feed container.
-       */
+       * a single .entry element within the .feed container. */
        it('include at least one .entry element within .feed container', function(done) {
          expect($('.feed .entry').length > 0).toBeTruthy();
          done();
